@@ -38,23 +38,36 @@ function score1TextContent() {
 
 btnRoll.addEventListener("click", function () {
   let diceRandom = Math.trunc(Math.random() * 6 + 1);
+  diceİmage.classList.remove("hidden");
   if (player0.classList.contains("player--active")) {
     if (diceRandom !== 1) {
       diceScore0 += diceRandom;
       score0TextContent();
+      for (let i = 2; i <= 6; i++) {
+        if (diceRandom === i) {
+          diceİmage.src = `dice-${i}.png`;
+        }
+      }
     } else {
       diceScore0 = 0;
       score0TextContent();
       addRemove0();
+      diceİmage.src = "dice-1.png";
     }
   } else if (player1.classList.contains("player--active")) {
     if (diceRandom !== 1) {
       diceScore1 += diceRandom;
       score1TextContent();
+      for (let i = 2; i <= 6; i++) {
+        if (diceRandom === i) {
+          diceİmage.src = `dice-${i}.png`;
+        }
+      }
     } else {
       diceScore1 = 0;
       score1TextContent();
       addRemove1();
+      diceİmage.src = "dice-1.png";
     }
   }
 });
@@ -74,14 +87,14 @@ btnHold.addEventListener("click", function () {
       addRemove0();
     }
   } else if (player1.classList.contains("player--active")) {
+    totalScore1 += diceScore1;
     if (totalScore1 >= 60) {
-      totalScore0 = 60;
+      totalScore1 = 60;
       current1.textContent = 60;
       score1.textContent = "WON";
       btnHold.disabled = "true";
       btnRoll.disabled = "true";
     } else {
-      totalScore1 += diceScore1;
       diceScore1 = 0;
       score1TextContent();
       current1.textContent = totalScore1;
@@ -99,4 +112,5 @@ btnNew.addEventListener("click", function () {
   score0TextContent(), score1TextContent();
   current0.textContent = "0";
   current1.textContent = "0";
+  diceİmage.classList.add("hidden");
 });
