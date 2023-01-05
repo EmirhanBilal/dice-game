@@ -76,7 +76,7 @@ btnHold.addEventListener("click", function () {
     totalScore0 += diceScore0;
     if (totalScore0 >= 20) {
       totalScore0 = 20;
-      current0.textContent = 60;
+      current0.textContent = 20;
       score0.textContent = "WON";
       btnHold.disabled = "true";
       btnRoll.disabled = "true";
@@ -91,7 +91,7 @@ btnHold.addEventListener("click", function () {
     totalScore1 += diceScore1;
     if (totalScore1 >= 20) {
       totalScore1 = 20;
-      current1.textContent = 60;
+      current1.textContent = 20;
       score1.textContent = "WON";
       btnHold.disabled = "true";
       btnRoll.disabled = "true";
