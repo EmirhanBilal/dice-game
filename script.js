@@ -74,12 +74,13 @@ btnRoll.addEventListener("click", function () {
 btnHold.addEventListener("click", function () {
   if (player0.classList.contains("player--active")) {
     totalScore0 += diceScore0;
-    if (totalScore0 >= 60) {
-      totalScore0 = 60;
+    if (totalScore0 >= 20) {
+      totalScore0 = 20;
       current0.textContent = 60;
       score0.textContent = "WON";
       btnHold.disabled = "true";
       btnRoll.disabled = "true";
+      player0.classList.add("player--winner")
     } else {
       diceScore0 = 0;
       score0TextContent();
@@ -88,12 +89,13 @@ btnHold.addEventListener("click", function () {
     }
   } else if (player1.classList.contains("player--active")) {
     totalScore1 += diceScore1;
-    if (totalScore1 >= 60) {
-      totalScore1 = 60;
+    if (totalScore1 >= 20) {
+      totalScore1 = 20;
       current1.textContent = 60;
       score1.textContent = "WON";
       btnHold.disabled = "true";
       btnRoll.disabled = "true";
+      player1.classList.add("player--winner")
     } else {
       diceScore1 = 0;
       score1TextContent();
@@ -113,4 +115,6 @@ btnNew.addEventListener("click", function () {
   current0.textContent = "0";
   current1.textContent = "0";
   diceİmage.classList.add("hidden");
+  player0.classList.remove("player--winner")
+  player1.classList.remove("player--winner")
 });
