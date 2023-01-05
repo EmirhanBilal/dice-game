@@ -117,4 +117,5 @@ btnNew.addEventListener("click", function () {
   diceİmage.classList.add("hidden");
   player0.classList.remove("player--winner")
   player1.classList.remove("player--winner")
+  addRemove1()
 });
